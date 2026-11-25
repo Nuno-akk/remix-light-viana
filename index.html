@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LightViana DMX — Live Lighting Console</title>
+    <meta name="description" content="Real-time DMX stage lighting console and live FX controller with volumetric stage visualizer, Move FX, Color FX, Flash triggers, and audio beat sync." />
+    <meta property="og:title" content="LightViana DMX — Live Lighting Console" />
+    <meta property="og:description" content="Real-time DMX stage lighting console and live FX controller with volumetric stage visualizer, Move FX, Color FX, Flash triggers, and audio beat sync." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#090C12" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="LightViana" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="icon" type="image/svg+xml" href="./icon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-[#090C12] text-slate-100 antialiased selection:bg-sky-500/30 selection:text-sky-100">
+    <div id="root"></div>
+    <script data-dev-file-redirect="true">
+      // When opened directly from a Windows folder (file://), redirect cleanly to the standalone dist/index.html build or display a launcher card.
+      (function () {
+        if (window.location.protocol !== 'file:') return;
+        var isBuiltDist = /\/dist\/index\.html$/i.test(window.location.pathname);
+        if (isBuiltDist) return;
+
+        var probe = new Image();
+        var settled = false;
+        probe.onload = function () {
+          if (settled) return;
+          settled = true;
+          window.location.replace('./dist/index.html' + (window.location.search || ''));
+        };
+        probe.onerror = function () {
+          if (settled) return;
+          settled = true;
+          var root = document.getElementById('root');
+          if (!root || root.childNodes.length > 0) return;
+          root.innerHTML =
+            '<div style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;font-family:system-ui,-apple-system,sans-serif;background:#090C12;color:#E2E8F0;">' +
+            '<div style="max-width:520px;width:100%;background:#101624;border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:24px;box-shadow:0 24px 48px rgba(0,0,0,0.45);">' +
+            '<h1 style="margin:0 0 8px;font-size:20px;font-weight:700;color:#FFFFFF;">LightViana DMX</h1>' +
+            '<p style="margin:0 0 16px;font-size:13px;line-height:1.5;color:#94A3B8;">Este ficheiro raiz é a fonte de desenvolvimento. Para abrir a aplicação diretamente no Windows, utiliza a pasta compilada ou o iniciador Windows.</p>' +
+            '<div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:14px;">' +
+            '<a href="./dist/index.html" style="display:inline-flex;align-items:center;justify-content:center;padding:10px 16px;border-radius:8px;background:#38BDF8;color:#090C12;font-size:13px;font-weight:700;text-decoration:none;">Abrir LightViana (dist/index.html)</a>' +
+            '</div>' +
+            '<div style="background:#0B101B;border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:12px;font-size:12px;line-height:1.55;color:#CBD5E1;">' +
+            '<strong>Modo Completo (Art-Net + Tablet Wi-Fi):</strong><br/>Executa <code style="color:#38BDF8;">Start-LightViana-Windows.bat</code> na pasta principal para compilar e iniciar o servidor em <code style="color:#38BDF8;">http://localhost:3000</code>.' +
+            '</div></div></div>';
+        };
+        probe.src = './dist/pwa-192x192.png';
+      })();
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

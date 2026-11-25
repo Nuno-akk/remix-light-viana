@@ -1,0 +1,10 @@
+{
+  "name": "Remix LightRider DMX",
+  "description": "Real-time DMX stage lighting console and live FX controller with volumetric stage visualizer, Move FX, Color FX, Flash triggers, and audio beat sync.",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,86 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: 'Outfit', system-ui, sans-serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #090c12;
+    color: #f1f5f9;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono-tabular {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Custom sleek range input for lighting console faders */
+input[type="range"].console-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type="range"].console-slider::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 3px;
+  background: #1e293b;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+input[type="range"].console-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  background: #f8fafc;
+  border: 1px solid rgba(15, 23, 42, 0.4);
+  margin-top: -7px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  transition: transform 0.12s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.12s ease;
+}
+
+input[type="range"].console-slider:hover::-webkit-slider-thumb {
+  transform: scale(1.08);
+  background: #ffffff;
+}
+
+input[type="range"].console-slider:focus-visible {
+  outline: none;
+}
+
+input[type="range"].console-slider:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.45);
+}
+
+/* Scrollbar subtlety */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090c12;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
